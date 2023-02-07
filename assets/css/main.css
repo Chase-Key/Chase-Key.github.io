@@ -85,7 +85,7 @@ input, select, textarea {
 	html {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("images/overlay.png"), url("../../images/bg2.jpg");
+		background-image: url("images/overlay.png"), url("../../images/port_background.mp4");
 		background-position: top left,					center center;
 		background-repeat: repeat,						none;
 		background-size: auto,						cover;
@@ -151,14 +151,63 @@ input, select, textarea {
 	p {
 		margin: 0 0 2em 0;
 	}
-
-	h1, h2, h3, h4, h5, h6 {
-		color: #61686b;
+	h2 {
+		color: #2e7696;
 		font-weight: 800;
 		letter-spacing: 0.075em;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
+		animation-name: h2colorpalette;
+		animation-duration: 8s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: linear;
+		
+	}
+	@keyframes h2colorpalette {
+		0% {
+			color: black;
+		}
+		25% {
+			color: #86a5e9;
+		}
+		50% {
+			color: rgb(46, 46, 151);
+		}
+		75% {
+			color: #2ddfe6;
+		}
+		100% {
+			color: rgb(46, 46, 151);
+		}
+		}
+	
+	h4 {
+		color: rgb(22, 22, 22);
+		font-weight: 800;
+		letter-spacing: 0.075em;
+		line-height: 1em;
+		margin: 0 0 1em 0;
+		text-transform: uppercase;
+	}
+	h1, h3, h5, h6 {
+		color: rgb(105, 27, 27);
+		font-weight: 800;
+		letter-spacing: 0.075em;
+		line-height: 1em;
+		margin: 0 0 1em 0;
+		text-transform: uppercase;
+	}
+	.paragraph {
+		font-size: 14px;
+		font-family: system-ui;
+		color: rgb(22, 22, 22);
+		font-weight: 500;
+	}
+	#profile-btn {
+		border-radius: 15px;
+		color: black;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -260,26 +309,33 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: calc(100% - 4em);
 		width: 35em;
+		border-radius: 15px;
+		color: rgb(15, 15, 15);
 	}
 
 		.container.xsmall {
 			width: 8.75em;
+			border-radius: 10px;
 		}
 
 		.container.small {
 			width: 17.5em;
+			border-radius: 10px;
 		}
 
 		.container.medium {
 			width: 26.25em;
+			border-radius: 10px;
 		}
 
 		.container.large {
 			width: 43.75em;
+			border-radius: 10px;
 		}
 
 		.container.xlarge {
 			width: 52.5em;
+			border-radius: 10px;
 		}
 
 		.container.max {
@@ -1926,7 +1982,66 @@ input, select, textarea {
 	section.special, article.special {
 		text-align: center;
 	}
-
+	#header-icon {
+		margin-left: 20px;
+		color: #2ddfe6;
+	}
+	#header-name {
+		color: #ffffff;
+	}
+	#header-name:hover {
+		color: rgb(0, 0, 0);
+		font-family: unset;
+		font-weight: lighter;
+		animation-name: header-name-palette;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: linear;
+	}
+	@keyframes header-name-palette {
+		0% {
+			color: white;
+		}
+		100% {
+			color: black;
+		}
+		}
+	#header-name::before {  
+		transform: scaleX(0);
+		transform-origin: bottom right;
+	}
+	
+	#header-name:hover::before {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+		
+	}
+	
+	#header-name::before {
+		content: " ";
+		display: block;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		inset: 0 0 0 0;
+		background: rgb(255, 255, 255);
+		z-index: -1;
+		transition: transform .3s ease;
+	}
+	
+	@media (orientation: landscape) {
+		body {
+		  grid-auto-flow: column;
+		}
+	  }
+	
+	#header-p {
+		font-size: medium;
+	}
+	#header-p:hover {
+		color: black;
+	}
+	
 	header p {
 		color: #a8b0b3;
 		letter-spacing: 0.05em;
@@ -1939,6 +2054,8 @@ input, select, textarea {
 
 	header h2 + p {
 		margin-top: -1em;
+		font-family: system-ui;
+		color: #317f99;
 	}
 
 	header h3 + p {
@@ -1954,6 +2071,7 @@ input, select, textarea {
 
 	header.major {
 		text-align: center;
+		font-size: smaller;
 	}
 
 		header.major h1, header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
@@ -1973,6 +2091,7 @@ input, select, textarea {
 		header.major p {
 			margin-top: 0;
 		}
+	
 
 /* Form */
 
@@ -2219,8 +2338,10 @@ input, select, textarea {
 /* Image */
 
 	.image {
-		border: 0;
-		display: inline-block;
+		border: none;
+		height: auto;
+		padding: 0px;
+		display: flex;
 		position: relative;
 	}
 
@@ -2228,7 +2349,7 @@ input, select, textarea {
 			background: url("images/overlay.png");
 			content: '';
 			display: block;
-			height: 100%;
+			height: 50%;
 			left: 0;
 			position: absolute;
 			top: 0;
@@ -2236,7 +2357,7 @@ input, select, textarea {
 		}
 
 		.image img {
-			display: block;
+			display: fill;
 		}
 
 		.image.left {
@@ -2247,7 +2368,7 @@ input, select, textarea {
 
 		.image.right {
 			float: right;
-			margin: 0 0 1em 1.5em;
+			margin: 0;
 			top: 0.25em;
 		}
 
@@ -2270,7 +2391,38 @@ input, select, textarea {
 			}
 
 /* List */
-
+	
+	#project-icon {
+		margin-left: 231px;
+		width: 40px;
+		height: 40px;
+		background-color: rgb(82, 82, 82);
+		border: 1px solid rgb(82, 82, 82);
+		border-radius: 50%;
+		border-width: 7px;
+	}
+	#project-icon:hover {
+		background-color: rgb(255, 255, 255);
+		border: 1px solid rgb(255, 255, 255);
+		border-radius: 50%;
+		border-width: 7px;
+	}
+	#contact-icon {
+		margin-left: 156px;
+		width: 40px;
+		background-color: rgb(82, 82, 82);
+		border: 1px solid rgb(82, 82, 82);
+		height: 42px;
+		border-radius: 50%;
+		border-width: 7px;
+		color: #2ddfe6;
+	}
+	#contact-icon:hover {
+		background-color: rgb(255, 255, 255);
+		border: 1px solid rgb(255, 255, 255);
+		border-radius: 5px;
+		border-width: 7px;
+	}
 	ol {
 		list-style: decimal;
 		margin: 0 0 2em 0;
@@ -2285,6 +2437,7 @@ input, select, textarea {
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
+		margin-right: 4%;
 	}
 
 		ul li {
@@ -2332,17 +2485,19 @@ input, select, textarea {
 			}
 
 /* Icons Grid */
+	
 
 	ul.icons-grid {
 		list-style: none;
 		padding: 0;
 		position: relative;
+		height: 10px;
 	}
 
 		ul.icons-grid li {
 			display: block;
 			float: left;
-			padding: 3em 0;
+			padding: 20px;
 			width: 50%;
 		}
 
@@ -2753,7 +2908,7 @@ input, select, textarea {
 
 			.main .container .content {
 				display: inline-block;
-				margin-right: 1px;
+				margin-left: 12px;
 				vertical-align: middle;
 				width: calc(100% - 10px);
 			}
@@ -2789,7 +2944,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		height: 100vh;
+		height: 80vh;
 		position: relative;
 		text-align: center;
 	}
@@ -2797,12 +2952,12 @@ input, select, textarea {
 		#header:after {
 			content: '';
 			display: inline-block;
-			height: 100vh;
+			height: 80vh;
 			vertical-align: middle;
 		}
 
 		#header header {
-			color: rgba(255, 255, 255, 0.5);
+			color: #2ddfe6;
 			display: inline-block;
 			padding-bottom: 8em;
 			vertical-align: middle;
