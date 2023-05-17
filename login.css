@@ -8,9 +8,10 @@
     padding-right: 100px;
     top: 2%;
     width: 40%;
-    margin: 30px 30px;
-    justify-content: right;
+    margin: auto;
+    justify-content: center;
     display: flex;
+    font-size: 1em;
 }
 
 .logo {
