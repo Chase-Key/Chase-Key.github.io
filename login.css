@@ -26,14 +26,14 @@
     width: 100%;
     padding: 10px 35px;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 }
 
 .logo {
     color: #fff;
     user-select: none;
-    font-size: 2em;
+    font-size: 10px;
     justify-content: left;
 }
 
@@ -44,7 +44,7 @@
 
 .navigation a {
     position: relative;
-    font-size: 0.5em;
+    font-size: 5px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
