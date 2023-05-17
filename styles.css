@@ -8,7 +8,8 @@ body {
 
 /* --- Parrallax Website --- */
 .wrapper {
-    height: 100vh;
+    height: 100dvh;
+    width: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
