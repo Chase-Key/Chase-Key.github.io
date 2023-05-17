@@ -7,8 +7,7 @@
     position: fixed;
     padding-right: 100px;
     top: 2%;
-    width: 100dvh;
-    height: 100dvh;
+    width: 100vh;
     margin: 30px 30px;
     justify-content: center;
     display: flex;
@@ -33,7 +32,7 @@
 .logo {
     color: #fff;
     user-select: none;
-    font-size: 1em;
+    font-size: 4em;
     justify-content: left;
 }
 
