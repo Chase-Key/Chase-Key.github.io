@@ -7,7 +7,7 @@
     position: fixed;
     padding-right: 100px;
     top: 2%;
-    width: 100%;
+    width: 100dvh;
     margin: 30px 30px;
     justify-content: center;
     display: flex;
