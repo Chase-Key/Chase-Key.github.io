@@ -1,0 +1,24 @@
+{
+    "ProjectArray" : [
+        {
+            "id": 1,
+            "title": "Personal Wikipedia",
+            "about": "Website created using Html,\n CSS, Django, and Python. Create new entries or \n edit existing entries. Data is stored as a Markdown file.",
+            "image": "",
+            "link": "link"
+        },
+        {
+            "id": 2,
+            "title": "Search - Google Clone",
+            "about": "This is a basic static html website. Attempting to clone Google's aesthetics and responses. You can utilize this search engine just like you would Googles'.",
+            "image": "some image",
+            "link": "link"
+        },{
+            "id": 3,
+            "title": "Ordering System",
+            "about": "A back-end Python program for an ordering system API. There are ordering and checkout options with a printable receipt. Furthermore, there is admin utilization with login.",
+            "image": "some image",
+            "link": "link"
+        }
+    ]
+}
