@@ -68,8 +68,9 @@ body .bubbles span:nth-child(even){
       height: 40px;
   }
   body .project-card iframe {
-    height: 15rem;
-    width: 25rem;
+    height: 10rem;
+    width: 12rem;
+    width: 250px;
   }
   body .project-card p{
       padding: 20px;
