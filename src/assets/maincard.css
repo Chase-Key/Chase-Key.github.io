@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body .cards {
-    top: -1800px;
     z-index: 10;
     position: relative;
     margin-bottom: -1500px;
