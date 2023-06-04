@@ -22,12 +22,17 @@
     width: 650px;
 }
 .project-card iframe {
-    height: 25rem;
-    width: 35rem;
+    height: 15rem;
+    width: 25rem;
+}
+.project-card h2 {
+    font-size: .9em;
+    text-decoration: underline;
+    margin-bottom: 10px;
 }
 .project-card p{
     padding: 25px;
-    font-size: 1.2em;
+    font-size: .9em;
 }
 /* .header {
     justify-content: center;
