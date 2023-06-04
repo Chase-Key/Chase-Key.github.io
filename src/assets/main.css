@@ -72,7 +72,7 @@ body .bubbles span:nth-child(even){
     width: 25rem;
   }
   body .project-card p{
-      padding: 5px;
-      font-size: .7em;
+      padding: 20px;
+      font-size: .6em;
   }
 }
