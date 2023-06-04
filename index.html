@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./src/assets/main.css" />
+    <link rel="stylesheet" type="text/css" href="./src/assets/maincard.css" />
+    <link rel="stylesheet" type="text/css" href="./src/assets/projectcard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>C.K. Portfolio</title>
+</head>
+<body>
+    
+    <div id="app">
+        <div class="background">
+            <div class="container">
+                <div class="bubbles">
+                    <span style="--i:11;"></span>
+                    <span style="--i:12;"></span>
+                    <span style="--i:24;"></span>
+                    <span style="--i:10;"></span>
+                    <span style="--i:14;"></span>
+                    <span style="--i:23;"></span>
+                    <span style="--i:18;"></span>
+                    <span style="--i:16;"></span>
+                    <span style="--i:19;"></span>
+                    <span style="--i:20;"></span>
+                    <span style="--i:22;"></span>
+                    <span style="--i:25;"></span>
+                    <span style="--i:18;"></span>
+                    <span style="--i:21;"></span>
+                    <span style="--i:15;"></span>
+                    <span style="--i:13;"></span>
+                    <span style="--i:26;"></span>
+                    <span style="--i:17;"></span>
+                    <span style="--i:13;"></span>
+                    <span style="--i:28;"></span>
+                    <span style="--i:9;"></span>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="main-container-one">
+                    <div class="container-one">
+                        <div class="profile">
+                            <img src="./src/components/img/profile-pic.png" alt="">
+                            <h2>Chase Key</h2>
+                            <p>Software Developer</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/chase-key">
+                                <div class="link">
+                                    <div class="icon-git"><i class="fa fa-github" style="font-size:36px"></i></div>
+                                    <h2>Github</h2>
+                                </div></a>
+                            <a href="https://linkedin.com/in/Chase-key">
+                                <div class="link">
+                                    <div class="icon-linked"><i class="fa fa-linkedin-square" style="font-size:36px"></i></div>
+                                    <h2>LinkedIn</h2>
+                                </div></a>
+                                
+                        </div>
+                    </div>
+                    <div class="container-two">
+                        <div class="about-me">
+                            <h1>About Me</h1>
+                            <p>Hello, my name is Chase. I am a self-taught programmer. I love creating and working with back-end and front-end technologies. I come from an Aviation Sciences background. I bring my work discipline, work ethic, obsessive planning and researching mindset into everything I encounter. I'm a coding enthusiast who is plagued with the overwhelming urge to tinker, figure things out, and develop. Learning is a passion for me and I strive everyday to hone my crafts and stay up to date with the latest technologies.
+                            </p>
+                        </div>
+                        <div class="technologies">
+                            <h1>Technologies Studied</h1>
+                            <div class="logos">
+                                <img src="./src/components/img/JS-logo.png" alt="">
+                                <img src="./src/components/img/Python-logo.png" alt="">
+                                <img src="./src/components/img/Java-logo.png" alt="">
+                                <img id="django" src="./src/components/img/Django-logo.png" alt="">
+                                <img src="./src/components/img/Html-logo.png" alt="">
+                                <img src="./src/components/img/Css-logo.png" alt="">
+                                <img src="./src/components/img/Vue-logo.png" alt="">
+                                <img src="./src/components/img/C-logo.png" alt="">
+                            </div>
+                        </div>
+                        <!-- <div class="btn-container">
+                            <div class="project-btns">
+                                <a href="./img/Chase-Key-Resume.pdf" download>My Resume'</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- --- FOR VUE --- -->
+                <!-- <script>
+                    import jsonData from './src/components/projects.json'
+                    export default {
+                        data(){
+                            return{
+                                projectData: jsonData
+                            }
+                        }
+                    }
+                </script> -->
+
+                <!-- <div class="header">
+                    <div class="title">
+                        <h1>Projects</h1>
+                    </div>
+                </div> -->
+                <div class="main-container-two">
+                    
+                    <div class="project-card" v-bind:key="items">
+                        <!-- <h2>{{ projectData.ProjectArray[0].title }}</h2> -->
+                        <h2>Personal Wiki</h2>
+                        <iframe src="https://www.youtube.com/embed/j97J-mf9z0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <!-- <p>{{ projectData.ProjectArray[0].about }}</p> -->
+                        <p>Website created using Html, CSS, Django, and Python. Create new entries or edit existing entries. Data is stored as a Markdown file.</p>
+                        <!-- <a href="{{ projectData.ProjectArray[0].link }}">link</a> -->
+                    </div>
+                    <div class="project-card">
+                        <!-- <h2>{{ projectData.ProjectArray[1].title }}</h2> -->
+                        <h2>Google Search Clone</h2>
+                        <iframe src="https://www.youtube.com/embed/7_PgYPSg34Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <!-- <p>{{ projectData.ProjectArray[1].about }}</p> -->
+                        <p>This is a basic static html website. Attempting to clone Google's aesthetics and responses. You can utilize this search engine just like you would Googles'.</p>
+                        <!-- <a href="{{ projectData.ProjectArray[1].link }}">link</a> -->
+                    </div>
+                    <div class="project-card">
+                        <!-- <h2>{{ projectData.ProjectArray[2].title }}</h2> -->
+                        <h2>Ordering System</h2>
+                        <iframe src="https://www.youtube.com/embed/kH_MplOYLPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <!-- <p>{{ projectData.ProjectArray[2].about }}</p> -->
+                        <p>A back-end Python program for an ordering system API. There are ordering and checkout options with a printable receipt. Furthermore, there is admin utilization with login.</p>
+                        <!-- <a href="{{ projectData.ProjectArray[2].link }}">link</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>

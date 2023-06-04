@@ -1,0 +1,78 @@
+@import './base.css';
+
+body .background {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body .background {
+  min-height: 100vh;
+  background-color: #0c192c;
+  overflow: hidden;
+}
+body .container {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 0;
+}
+body .bubbles {
+  position: relative;
+  display: flex;
+}
+body .bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #4fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44,
+  0 0 50px #4fc3dc,
+  0 0 100px #4fc3dc;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+body .bubbles span:nth-child(even){
+  background: #514fdc;
+  box-shadow: 0 0 0 10px #ff2d7544,
+  0 0 50px #514fdc,
+  0 0 100px #514fdc;
+}
+@keyframes animate {
+  0%{
+    transform: translateY(100vh) scale(0);
+  }
+  100%{
+    transform: translateY(-10vh) scale(1);
+  }
+}
+@media only screen and (max-width: 892px){
+  body .cards .social-links a {
+      font-size: .7em;
+  }
+  body .cards .container-two p {
+      font-size: .6em;
+  }
+  body .cards .container-two h1 {
+      font-size: 1em;
+  }
+  body .cards .profile img {
+      height: 100px;
+  }
+  body .cards .profile {
+      font-size: .6em;
+  }
+  body .cards .technologies .logos img {
+      height: 40px;
+  }
+  body .project-card iframe {
+    height: 15rem;
+    width: 25rem;
+  }
+  body .project-card p{
+      padding: 5px;
+      font-size: .7em;
+  }
+}

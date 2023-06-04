@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body .cards {
+    top: -1800px;
+    z-index: 10;
+    position: relative;
+    margin-bottom: -1500px;
+}
+body .cards .main-container-one {
+    font-size: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    padding: 10%;
+    z-index: 2;
+}
+body .cards .container-one {
+    padding: 0px;
+    background-color: azure;
+    width: 25%;
+    border-bottom-left-radius: 65%;
+    box-shadow: gray 0px 5px 5px;
+}
+body .cards .container-one .profile h2 {
+    color: rgb(57, 138, 138);
+}
+.cards .profile img {
+    height: 200px;
+    padding-top: 10px;
+}
+.cards .profile p {
+    font-weight: 700;
+}
+.cards .profile h2 {
+    font-weight: 500;
+}
+.cards .container-two {
+    width: 75%;
+    background-color: aliceblue;
+    border-top-right-radius: 25%;
+    box-shadow: gray 10px 5px 5px;
+}
+.cards .container-two h1 {
+    color: black;
+    padding-top: 6%;
+    padding-bottom: 3%;
+    text-decoration: underline;
+}
+.cards .container-two p {
+    width: 95%;
+    padding: 15px;
+}
+.cards .social-links a {
+    text-decoration: None;
+}
+.cards .social-links a:hover {
+    text-decoration: underline;
+}
+.cards .link {
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+.cards .link h2 {
+    padding-inline-start: 10px;
+    color: black;
+    text-decoration: None;
+}
+.cards .icon-linked {
+    color: rgb(30, 51, 146);
+    font-size: 1.5em;
+}
+.cards .icon-git {
+    color: gray;
+    font-size: 1.5em;
+}
+.cards .logos img {
+    height: 70px;
+    padding-inline-start: 1px;
+}
+.cards .logos #django {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.cards header {
+line-height: 1.5;
+}
+.cards .logos {
+    margin-bottom: 20px;
+}
+.cards .btn-container {
+    padding: 10%;
+}
+.cards .btn-container .project-btns a {
+    justify-content: center;
+    color: black;
+    padding: 5%;
+    text-decoration: None;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.cards .btn-container .project-btns a:hover {
+    color: white;
+    background-color: rgb(57, 138, 138);
+    border-radius: 55%;
+    background-size: 5px;
+    transition: background-color 1s;
+}
+
+/* @media only screen and (max-width: 800px){
+    .main-container {
+        width: 100%;
+    }
+} */
+
+/* .logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+} */
