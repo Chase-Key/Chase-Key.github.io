@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body .cards {
-    top: -810px;
+    top: -860px;
     z-index: 10;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 body .cards .main-container-one {
     font-size: 1.5em;
@@ -32,6 +32,7 @@ body .cards .container-one .profile h2 {
 }
 .cards .profile p {
     font-weight: 700;
+    color: black;
 }
 .cards .profile h2 {
     font-weight: 500;
@@ -51,6 +52,7 @@ body .cards .container-one .profile h2 {
 .cards .container-two p {
     width: 95%;
     padding: 15px;
+    color: black;
 }
 .cards .social-links a {
     text-decoration: None;
