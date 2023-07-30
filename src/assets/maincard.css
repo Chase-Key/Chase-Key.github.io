@@ -2,7 +2,6 @@
 
 body .cards {
     top: -860px;
-    z-index: 10;
     position: relative;
     margin-bottom: 20px;
 }
@@ -17,7 +16,6 @@ body .cards .main-container-one {
     z-index: 2;
 }
 body .cards .container-one {
-    padding: 0px;
     background-color: azure;
     width: 25%;
     border-bottom-left-radius: 65%;
