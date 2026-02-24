@@ -65,6 +65,17 @@
       background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
     }
 
+    /* ─── Grid spotlight (mouse hover glow) ─────────────────────────── */
+    .bg-grid-spotlight {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.45) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.45) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(circle 90px at var(--mx, -999px) var(--my, -999px), black 0%, transparent 100%);
+              mask-image: radial-gradient(circle 90px at var(--mx, -999px) var(--my, -999px), black 0%, transparent 100%);
+    }
+
     /* ─── Navigation ─────────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -625,6 +636,7 @@
 
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-grid-spotlight" aria-hidden="true"></div>
 
   <!-- ── Navigation ─────────────────────────────────────────────────── -->
   <nav id="navbar">
@@ -1246,6 +1258,13 @@
     }
 
     setTimeout(type, 900);
+
+    // ── Grid spotlight ───────────────────────────────────────────────
+    const spotlight = document.querySelector('.bg-grid-spotlight');
+    window.addEventListener('mousemove', e => {
+      spotlight.style.setProperty('--mx', e.clientX + 'px');
+      spotlight.style.setProperty('--my', e.clientY + 'px');
+    });
 
     // ── Nav shadow on scroll ────────────────────────────────────────
     window.addEventListener('scroll', () => {
