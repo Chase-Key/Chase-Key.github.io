@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chase Key — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Screen base ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #0077aa;
+      --text:     #1a1a2e;
+      --muted:    #5a6070;
+      --border:   #dde1e8;
+      --bg:       #f8f9fb;
+      --white:    #ffffff;
+      --mono:     'JetBrains Mono', monospace;
+      --sans:     'Inter', -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ── Print button (screen only) ────────────────────────────────── */
+    .print-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #080b14;
+      border-bottom: 1px solid rgba(0,212,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 2rem;
+      gap: 1rem;
+    }
+
+    .print-bar-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: #8892a4;
+      letter-spacing: 0.1em;
+    }
+
+    .print-bar-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.1rem;
+      background: linear-gradient(135deg, #00d4ff, #3b6fff);
+      color: #080b14;
+      border: none; border-radius: 6px;
+      font-family: var(--sans);
+      font-weight: 600; font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-print:hover { opacity: 0.85; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(0,212,255,0.3);
+      color: #8892a4;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-back:hover { color: #00d4ff; border-color: #00d4ff; }
+
+    /* ── Page wrapper ───────────────────────────────────────────────── */
+    .page {
+      max-width: 800px;
+      margin: 4rem auto 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ────────────────────────────────────────────────────── */
+    .r-header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .r-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .r-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      font-family: var(--mono);
+    }
+
+    .r-contact {
+      margin-top: 0.65rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+    }
+
+    .r-contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .r-contact a:hover { text-decoration: underline; }
+
+    /* ── Sections ───────────────────────────────────────────────────── */
+    .r-section { margin-bottom: 1.6rem; }
+
+    .r-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: var(--mono);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── Summary ────────────────────────────────────────────────────── */
+    .r-summary {
+      font-size: 0.875rem;
+      color: #2c3345;
+      line-height: 1.75;
+    }
+
+    /* ── Skills table ───────────────────────────────────────────────── */
+    .r-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem 1.5rem;
+    }
+
+    .r-skill-col h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      font-family: var(--mono);
+    }
+
+    .r-skill-col ul {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── Projects ───────────────────────────────────────────────────── */
+    .r-project { margin-bottom: 1.1rem; }
+
+    .r-project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .r-project-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .r-project-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    .r-project-sub {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .r-project-sub a { color: var(--accent); text-decoration: none; }
+
+    .r-project p {
+      font-size: 0.82rem;
+      color: #3a4255;
+      line-height: 1.65;
+      margin-bottom: 0.35rem;
+    }
+
+    .r-bullets {
+      margin: 0.25rem 0 0 1rem;
+      list-style: disc;
+    }
+
+    .r-bullets li {
+      font-size: 0.82rem;
+      color: #3a4255;
+      line-height: 1.65;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ── Repo table ─────────────────────────────────────────────────── */
+    .r-repo-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
+    }
+
+    .r-repo-table td {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .r-repo-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      white-space: nowrap;
+      background: #f4f7ff;
+      width: 32%;
+    }
+
+    .r-repo-table td:last-child { color: #3a4255; }
+
+    /* ── Experience ─────────────────────────────────────────────────── */
+    .r-job { margin-bottom: 1.1rem; }
+
+    .r-job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .r-job-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .r-job-dates {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    .r-job-company {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .r-job-company .badge {
+      display: inline-block;
+      background: #eef6ff;
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.1rem 0.45rem;
+      border-radius: 3px;
+      font-family: var(--mono);
+      letter-spacing: 0.06em;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* ── Education ───────────────────────────────────────────────────── */
+    .r-edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .r-edu-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .r-edu-dates {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .r-edu-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .r-edu-note {
+      font-size: 0.78rem;
+      color: #4a5568;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ── Certs table ────────────────────────────────────────────────── */
+    .r-cert-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .r-cert-table th {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: var(--mono);
+      border-bottom: 1px solid var(--border);
+      padding: 0.25rem 0.5rem 0.4rem;
+      text-align: left;
+    }
+
+    .r-cert-table td {
+      padding: 0.3rem 0.5rem;
+      color: #3a4255;
+      border-bottom: 1px solid #f0f2f5;
+      vertical-align: top;
+    }
+
+    .r-cert-table tr:last-child td { border-bottom: none; }
+
+    .r-cert-table td:last-child {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .in-progress {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Profile footer ─────────────────────────────────────────────── */
+    .r-profile {
+      font-size: 0.82rem;
+      color: #3a4255;
+      line-height: 1.75;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .r-footer {
+      margin-top: 1.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+    }
+
+    .r-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Print ──────────────────────────────────────────────────────── */
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.65in 0.7in;
+      }
+
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      body {
+        background: white;
+        padding: 0;
+        font-size: 13px;
+      }
+
+      .print-bar { display: none !important; }
+
+      .page {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .r-project, .r-job {
+        page-break-inside: avoid;
+      }
+
+      a { color: var(--accent) !important; text-decoration: none !important; }
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .page { padding: 1.5rem; }
+      .r-skills-grid { grid-template-columns: 1fr; }
+      .print-bar { padding: 0.6rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print bar (hidden on print) -->
+  <div class="print-bar">
+    <span class="print-bar-label">chase-key.github.io / resume</span>
+    <div class="print-bar-actions">
+      <a href="/" class="btn-back">← Portfolio</a>
+      <button class="btn-print" onclick="window.print()">⬇ Save as PDF</button>
+    </div>
+  </div>
+
+  <!-- Resume page -->
+  <div class="page">
+
+    <!-- Header -->
+    <div class="r-header">
+      <div class="r-name">Chase Key</div>
+      <div class="r-title">AI Engineer</div>
+      <div class="r-contact">
+        <span>chase.key.dev@gmail.com</span>
+        <a href="https://linkedin.com/in/chase-key" target="_blank">linkedin.com/in/chase-key</a>
+        <a href="https://github.com/chase-key" target="_blank">github.com/chase-key</a>
+        <a href="https://memoria-engine.fly.dev" target="_blank">memoria-engine.fly.dev</a>
+        <span>United States</span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="r-section">
+      <div class="r-section-title">Summary</div>
+      <p class="r-summary">
+        AI Engineer with a background in professional aviation, enterprise data analysis, and autonomous systems development.
+        Holds a CS50p certificate from Harvard/edX with a year of sustained open-source AI contributions on GitHub.
+        In February 2026, designed, built, containerized, and deployed a production autonomous AI agent system in a single
+        development session — and subsequently submitted the extracted modular framework to Anthropic's open skills repository
+        (PR #444, <code style="font-family:var(--mono);font-size:0.82em;">anthropics/skills</code>). Brings a
+        domain-rare combination: aerospace-level systems rigor, production AI deployment experience, and a deeply held belief
+        that well-built systems make people's work better. Seeking an AI Engineer role where that combination can contribute meaningfully.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="r-section">
+      <div class="r-section-title">Technical Skills</div>
+      <div class="r-skills-grid">
+        <div class="r-skill-col">
+          <h4>AI &amp; Agentic Systems</h4>
+          <ul>
+            <li>OpenAI API · GPT-4 / GPT-3.5-turbo</li>
+            <li>Autonomous Agent Design</li>
+            <li>ChromaDB · Vector DBs · RAG</li>
+            <li>Semantic Search · Embeddings</li>
+            <li>Prompt Engineering</li>
+            <li>Modular Cognitive Architecture</li>
+            <li>Memory Architecture Design</li>
+            <li>Multi-Agent System Design</li>
+          </ul>
+        </div>
+        <div class="r-skill-col">
+          <h4>Data Engineering &amp; SQL</h4>
+          <ul>
+            <li>SQL · T-SQL · CTEs · Window Functions</li>
+            <li>Query Optimization · Execution Plans</li>
+            <li>SQL Server · PostgreSQL · MySQL · BigQuery</li>
+            <li>ETL/ELT · Data Pipeline Design</li>
+            <li>Anomaly Detection · Root-Cause Analysis</li>
+            <li>Data Governance · Compliance</li>
+            <li>Tableau · Power BI · Excel (Advanced)</li>
+          </ul>
+        </div>
+        <div class="r-skill-col">
+          <h4>Software &amp; Infrastructure</h4>
+          <ul>
+            <li>Python · FastAPI · Docker · Uvicorn</li>
+            <li>Git / GitHub · REST API Design</li>
+            <li>fly.io · Cloud Deployment</li>
+            <li>HTML5 · CSS · JavaScript · R</li>
+            <li>Information Architecture · JSON</li>
+            <li>SOP Development · Tech Documentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="r-section">
+      <div class="r-section-title">Open-Source &amp; AI Projects</div>
+
+      <div class="r-project">
+        <div class="r-project-header">
+          <div class="r-project-title">AURELION Modular AI Suite — Submitted to Anthropic Skills Repository</div>
+          <div class="r-project-date">February 2026</div>
+        </div>
+        <div class="r-project-sub">
+          <a href="https://github.com/chase-key">github.com/chase-key</a> &nbsp;·&nbsp;
+          PR: <a href="https://github.com/anthropics/skills/pull/444">anthropics/skills #444</a> — feat: add AURELION skill suite
+        </div>
+        <p>Designed and published a modular, open-source cognitive AI architecture spanning six interoperable repositories,
+           each independently deployable and composable. Submitted for inclusion in Anthropic's public skills library;
+           all modules met Anthropic's standards for structure, documentation, and reusability.</p>
+        <table class="r-repo-table">
+          <tr><td>aurelion-kernel-lite</td><td>5-layer cognitive structure templates for organizing complex reasoning</td></tr>
+          <tr><td>aurelion-memory-lite</td><td>File-based persistent knowledge graph (Python)</td></tr>
+          <tr><td>aurelion-advisor-lite</td><td>Strategic planning templates and methodology library</td></tr>
+          <tr><td>aurelion-agent-lite</td><td>100+ AI collaboration prompts and agentic thinking protocols</td></tr>
+          <tr><td>aurelion-nexus-lite</td><td>Story-agnostic NPC and world simulation framework (Python)</td></tr>
+          <tr><td>aurelion-hub</td><td>Central orchestration hub and documentation index for the suite</td></tr>
+        </table>
+      </div>
+
+      <div class="r-project">
+        <div class="r-project-header">
+          <div class="r-project-title">Memoria Engine — Production Autonomous AI Agent</div>
+          <div class="r-project-date">February 2026</div>
+        </div>
+        <div class="r-project-sub">
+          Live: <a href="https://memoria-engine.fly.dev">memoria-engine.fly.dev</a> &nbsp;·&nbsp;
+          Stack: Python · FastAPI · OpenAI API · ChromaDB · Docker · fly.io &nbsp;·&nbsp;
+          Concept to production in under five hours
+        </div>
+        <ul class="r-bullets">
+          <li>Engineered lazy indexing to reduce application cold-start from 30 seconds to under 2 seconds</li>
+          <li>Implemented three-tier character resolution fallback system maintaining zero-downtime across naming inconsistencies</li>
+          <li>Hardened cross-platform encoding (Windows development → Linux production container) across 15+ I/O operations</li>
+          <li>Designed GPT-4 → GPT-3.5-turbo cost routing, achieving ~$0.02–$0.05 per query in production</li>
+          <li>Delivered HTML5/CSS user interface expanding usability beyond technical-only API access</li>
+          <li>Authored 480-line technical post-mortem capturing architectural decisions and lessons learned</li>
+        </ul>
+      </div>
+
+      <div class="r-project">
+        <div class="r-project-header">
+          <div class="r-project-title">Enterprise Data Investigation — Multi-Year Root-Cause Analysis</div>
+          <div class="r-project-date">January 2026</div>
+        </div>
+        <div class="r-project-sub">LexisNexis / RELX Group</div>
+        <p>Led a structured, multi-phase investigation into a longitudinal data anomaly affecting court record volume accuracy
+           across multiple jurisdictions. Applied custom SQL (window functions, CTEs, cross-feed aggregation) to trace failure to
+           a parser logic condition causing systematic record exclusion. Findings validated by Engineering; corrective fix deployed.
+           Investigation methodology adopted as the team's standard framework.</p>
+      </div>
+
+      <div class="r-project">
+        <div class="r-project-header">
+          <div class="r-project-title">Knowledge Systems Architecture — AAAI Enterprise Framework</div>
+          <div class="r-project-date">Jan–Feb 2026</div>
+        </div>
+        <p>Designed a five-layer knowledge architecture: 35+ interconnected documents, 15,000+ lines of structured content,
+           Python-powered search library, semantic knowledge graph (JSON). Includes 4-week analyst training curriculum,
+           investigation decision tree, enterprise data governance framework, and workforce capacity model —
+           all piloted organizationally at zero additional budget.</p>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="r-section">
+      <div class="r-section-title">Professional Experience</div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <div class="r-job-title">Data Performance Analyst I</div>
+          <div class="r-job-dates">Oct 2025 – Present</div>
+        </div>
+        <div class="r-job-company">
+          LexisNexis · RELX Group
+          <span class="badge">PROMOTED</span>
+        </div>
+        <ul class="r-bullets">
+          <li>Subject Matter Expert for five U.S. jurisdictions — responsible for data quality, feed health, SLA compliance, and operational continuity across 17 primary data sources and 9+ backup assignments</li>
+          <li>Resolved a multi-year data volume anomaly in 8 days through systematic SQL investigation across 3M+ records; engineering team confirmed root cause and deployed fix</li>
+          <li>Delivered 30%+ query performance improvements through execution plan analysis and indexing strategy; patterns adopted as team standards</li>
+          <li>Reduced team manual processing workload by 20%+ through Python automation scripts</li>
+          <li>Built and maintained 3+ Tableau dashboards for live feed health monitoring and SLA risk tracking</li>
+          <li>Designed and deployed a 10-section enterprise-grade data governance framework covering PII compliance, lifecycle management, and audit trail</li>
+          <li>Completed mandatory Information Security training 24 days ahead of organizational deadline</li>
+          <li>Proposed a zero-cost team knowledge management system; leadership approved for organizational pilot</li>
+        </ul>
+      </div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <div class="r-job-title">Data Analyst I</div>
+          <div class="r-job-dates">Jul 2025 – Oct 2025</div>
+        </div>
+        <div class="r-job-company">
+          LexisNexis · RELX Group
+          <span class="badge">PROMOTED</span>
+        </div>
+        <ul class="r-bullets">
+          <li>Designed and delivered a formal 5-week analyst onboarding program with structured curriculum, hands-on tool training, and a standardized QA competency assessment</li>
+          <li>Mentored 14 analysts through complex investigations, technical troubleshooting, and cross-team research methodologies</li>
+          <li>Facilitated 9.5+ hours of formal training; all participants transitioned to independent assignments upon completion</li>
+          <li>Converted tribal-knowledge operational processes into reusable, versioned SOPs</li>
+        </ul>
+      </div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <div class="r-job-title">Data Analyst</div>
+          <div class="r-job-dates">Sep 2023 – Jul 2025</div>
+        </div>
+        <div class="r-job-company">
+          LexisNexis · RELX Group
+          <span class="badge">CONTRACTOR → FTE</span>
+        </div>
+        <ul class="r-bullets">
+          <li>Promoted from contractor to full-time employee based on demonstrated technical performance and initiative</li>
+          <li>Self-directed learning of SQL and Python applied directly to production workflow automation and data quality improvement</li>
+          <li>Developed reference documentation and QA methodology guides later incorporated into team-wide SOPs</li>
+          <li>Advanced from onboarding to independently conducting multi-jurisdictional investigations within the first year</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="r-section">
+      <div class="r-section-title">Education</div>
+      <div class="r-edu-header">
+        <div class="r-edu-title">B.S. · Professional Pilot Aviation Sciences</div>
+        <div class="r-edu-dates">2006 – 2010</div>
+      </div>
+      <div class="r-edu-sub">Southeastern Oklahoma State University &nbsp;·&nbsp; PPL · Instrument Rating · Complex Aircraft Rating · Commercial Rating</div>
+      <p class="r-edu-note">Aviation training established a foundational principle applied to every engineering project since: in safety-critical systems, navigability and clarity of information architecture are not optional — they are the system.</p>
+    </div>
+
+    <!-- Certifications -->
+    <div class="r-section">
+      <div class="r-section-title">Certifications &amp; Coursework</div>
+      <table class="r-cert-table">
+        <thead>
+          <tr>
+            <th>Credential</th>
+            <th>Issuer</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://certificates.cs50.io/9a51019d-3e21-4e4c-8b1b-ba0d21447ea5.pdf" target="_blank">CS50p: Introduction to Programming with Python</a></td>
+            <td>Harvard University / edX</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.credly.com/badges/9ada9865-c25f-4bce-9b08-086784002448" target="_blank">Google Professional Data Analytics Certificate</a></td>
+            <td>Google / Coursera</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td>Python for Data Science</td>
+            <td>Coursera</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td><a href="https://skillsoft.digitalbadges.skillsoft.com/fb695bd8-0812-4d56-885a-eedac4d76c06" target="_blank">Querying SQL Databases: Learning SQL Using Prompt Engineering</a></td>
+            <td>Skillsoft</td>
+            <td>2025</td>
+          </tr>
+          <tr>
+            <td>JavaScript — Data Structures &amp; Algorithms</td>
+            <td>freeCodeCamp</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td class="in-progress">Advanced SQL <em>(60% complete — Target: Mar 2026)</em></td>
+            <td>DataCamp</td>
+            <td>In Progress</td>
+          </tr>
+          <tr>
+            <td class="in-progress">Advanced Python Data Science <em>(30% complete — Target: Jun 2026)</em></td>
+            <td>Coursera / DataCamp</td>
+            <td>In Progress</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Profile -->
+    <div class="r-section">
+      <div class="r-section-title">Profile</div>
+      <p class="r-profile">
+        I am genuinely grateful for every opportunity that has led here. My path has not been linear — aviation, data analysis,
+        and now AI engineering — but each chapter has built something the next one needed. Aviation gave me systems thinking and
+        a deep respect for what happens when precision fails. Data analysis grounded that thinking in real-world complexity:
+        multi-year anomalies, organizational scale, and the responsibility of getting it right. AI development gave me a new
+        medium to build things that actually help people do their work better. I believe the most valuable thing an engineer
+        can do is understand a system well enough to make it trustworthy. That belief applies equally to flight systems, data
+        pipelines, and autonomous AI agents. I bring it to every problem I touch.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="r-footer">
+      <a href="https://github.com/chase-key">github.com/chase-key</a>
+      <a href="https://memoria-engine.fly.dev">memoria-engine.fly.dev</a>
+      <a href="https://github.com/anthropics/skills/pull/444">anthropics/skills PR #444</a>
+      <span>Updated February 2026</span>
+    </div>
+
+  </div><!-- /.page -->
+
+</body>
+</html>
