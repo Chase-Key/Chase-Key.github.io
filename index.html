@@ -433,6 +433,7 @@
     .badge-live    { background: rgba(0,255,128,0.08); border: 1px solid rgba(0,255,128,0.28); color: #00d46a; }
     .badge-sub     { background: rgba(123,47,255,0.1);  border: 1px solid rgba(123,47,255,0.28); color: #a97cff; }
     .badge-prod    { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.22); color: var(--accent); }
+    .badge-local   { background: rgba(255,165,0,0.08);  border: 1px solid rgba(255,165,0,0.28);  color: #ffaa44; }
 
     .project-title { font-size: 1.08rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
 
@@ -672,7 +673,8 @@
           </div>
           <p class="hero-summary reveal reveal-delay-3">
             AI Engineer with roots in professional aviation and enterprise data systems.
-            I design and ship production AI — from autonomous agents to modular cognitive architectures.
+            I design and ship production AI — from autonomous agents and local LLM infrastructure
+            to real-time game servers and client deployments.
             My open-source work has been submitted to Anthropic's skills repository.
           </p>
           <div class="hero-btns reveal reveal-delay-4">
@@ -826,6 +828,9 @@
             <span class="skill-tag">Modular Architecture</span>
             <span class="skill-tag">AI Evaluation &amp; QA</span>
             <span class="skill-tag">Cognitive Frameworks</span>
+            <span class="skill-tag">Ollama</span>
+            <span class="skill-tag">Local LLM Deployment</span>
+            <span class="skill-tag">MCP Protocol</span>
           </div>
         </div>
 
@@ -892,6 +897,10 @@
             <span class="skill-tag">JSON</span>
             <span class="skill-tag">Technical Documentation</span>
             <span class="skill-tag">SOP Development</span>
+            <span class="skill-tag">Railway</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">WebSocket</span>
           </div>
         </div>
       </div>
@@ -927,12 +936,14 @@
             <tr><td><a href="https://github.com/Chase-Key/aurelion-nexus-lite" target="_blank" rel="noopener">aurelion-nexus-lite</a></td><td>Story-agnostic NPC and world simulation framework (Python)</td></tr>
             <tr><td><a href="https://github.com/Chase-Key/aurelion-hub" target="_blank" rel="noopener">aurelion-hub</a></td><td>Central orchestration hub and documentation index for the suite</td></tr>
           </table>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">All six repos are also packaged as pip-installable Python modules under <span style="font-family:var(--mono);color:var(--accent);">aurelion-eco/modules/</span> — composable, editable packages for any project.</p>
           <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Modular Architecture</span>
             <span class="tech-tag">Open Source</span>
             <span class="tech-tag">Cognitive AI</span>
             <span class="tech-tag">JSON Schema</span>
+            <span class="tech-tag">pip packages</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/chase-key" target="_blank" rel="noopener" class="project-link">
@@ -1090,6 +1101,104 @@
           </div>
         </div>
 
+        <!-- Om — Local Agentic AI -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div>
+              <div class="project-title">Om — Local Agentic AI</div>
+              <div class="project-subtitle">On-Device AI System · 2026</div>
+            </div>
+            <span class="project-badge badge-local">Local Build</span>
+          </div>
+          <p class="project-desc">
+            Fully self-hosted agentic AI running on an external drive. Ollama-powered with custom om-deep and om-fast models — GPU maxed at 16,384 context length. 12,406 documents indexed across seven ChromaDB collections. MCP server bridge enables live tool injection into any connected agent.
+            <ul>
+              <li>12,406 docs across 7 ChromaDB collections: knowledge, stonecrest, research, facts, capabilities, projects, preferences</li>
+              <li>Custom Ollama models (om-deep / om-fast) — 7.9 GB GPU, 16,384 ctx, 100% utilized</li>
+              <li>MCP stdio server — 7 tools: om_chat, om_research, om_remember, om_retrieve, om_ingest_url, om_health, om_inspect_self</li>
+              <li>15 active capabilities (14 stable, 1 experimental) — inbox watching active</li>
+            </ul>
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">ChromaDB</span>
+            <span class="tech-tag">MCP Protocol</span>
+            <span class="tech-tag">Local LLM</span>
+            <span class="tech-tag">Vector DB</span>
+          </div>
+          <div class="project-links">
+            <span style="font-size:0.8rem;color:var(--text-dim);font-family:var(--mono);">
+              <i class="fa-solid fa-lock"></i> Private local system
+            </span>
+          </div>
+        </div>
+
+        <!-- Hermes — AI Gateway Agent -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-header">
+            <div>
+              <div class="project-title">Hermes — AI Gateway Agent</div>
+              <div class="project-subtitle">Personal AI Orchestration Layer · 2026</div>
+            </div>
+            <span class="project-badge badge-local">Local Build</span>
+          </div>
+          <p class="project-desc">
+            Orchestration gateway bridging GitHub Copilot (Claude Sonnet 4.6, medium reasoning) to Om's MCP tool server and a live Telegram bot. Persona-driven with a SOUL.md character file that hot-reloads without restart. MCP tools inject at session startup — 7 Om tools available to any connected agent.
+            <ul>
+              <li>Telegram gateway: CK_Master_Bot_1 — live conversational AI accessible on mobile</li>
+              <li>7 Om MCP tools injected at session startup via stdio bridge</li>
+              <li>SOUL.md persona (King Aurelion "Rell" Valenhart) — hot-reload, no restart required</li>
+              <li>GitHub Copilot as reasoning brain — Claude Sonnet 4.6, medium reasoning budget</li>
+            </ul>
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">MCP Protocol</span>
+            <span class="tech-tag">Telegram Bot API</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">Claude Sonnet 4.6</span>
+            <span class="tech-tag">Local AI</span>
+          </div>
+          <div class="project-links">
+            <span style="font-size:0.8rem;color:var(--text-dim);font-family:var(--mono);">
+              <i class="fa-solid fa-lock"></i> Private local system
+            </span>
+          </div>
+        </div>
+
+        <!-- Stonecrest — Text Multiplayer RPG -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-header">
+            <div>
+              <div class="project-title">Stonecrest — Text Multiplayer RPG</div>
+              <div class="project-subtitle">Real-Time WebSocket RPG · 2026</div>
+            </div>
+            <span class="project-badge badge-live">● Live</span>
+          </div>
+          <p class="project-desc">
+            Playable text-based multiplayer RPG set in the Stonecrest world. Players create characters, choose classes, fight enemies, and progress through zones. Real-time WebSocket combat server deployed on Railway.
+            <ul>
+              <li>Character creation with class system — persistent SQLite game state</li>
+              <li>Zone-based progression with seeded enemies and encounters</li>
+              <li>Real-time WebSocket server for live multiplayer sessions</li>
+              <li>Companion to Memoria Engine — shares the same Stonecrest world lore</li>
+            </ul>
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Railway</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/chase-key" target="_blank" rel="noopener" class="project-link">
+              <i class="fa-brands fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1241,14 +1350,14 @@
               <i class="fa-solid fa-circle-half-stroke cert-icon cert-inprogress"></i>
               <div>
                 <strong class="cert-inprogress">Advanced SQL · 60% complete</strong>
-                DataCamp · Target: Mar 2026
+                DataCamp · Target: Q3 2026
               </div>
             </li>
             <li>
               <i class="fa-solid fa-circle-half-stroke cert-icon cert-inprogress"></i>
               <div>
                 <strong class="cert-inprogress">Advanced Python Data Science · 30% complete</strong>
-                Coursera / DataCamp · Target: Jun 2026
+                Coursera / DataCamp · Target: Q4 2026
               </div>
             </li>
           </ul>
